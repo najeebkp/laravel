@@ -79,7 +79,7 @@ class PostController extends Controller
 	}
 	public function category($category)
 	{
-		$posts=DB::table('posts')->where('category',$category)->get();
+		$posts=DB::table('posts')->where('Category',$category)->get();
 		return view('hi',['posts'=>$posts]) ;
 	}
 	public function mypost()
