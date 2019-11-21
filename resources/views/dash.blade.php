@@ -52,7 +52,7 @@
                     </li>
 
 	 <li>
-                        <a href="<?php echo '/category/Education' ?>"><i class="fa fa-edit "></i>Education </a>
+                        <a href="<?php echo '/category/education' ?>"><i class="fa fa-edit "></i>Education </a>
                     </li>
                     
                 </ul>
