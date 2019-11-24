@@ -66,10 +66,10 @@
                             <div class="col-md-6">
 
                                 
-                            <input type="checkbox" name="cat[]" value="political">Political<br>
-                            <input type="checkbox" name="cat[]" value="sports">Sports<br>
-                            <input type="checkbox" name="cat[]" value="technology">Technology<br>
-                            <input type="checkbox" name="cat[]" value="education">Education<br>
+                            <input type="checkbox" name="category[]" value="1">Political<br>
+                            <input type="checkbox" name="category[]" value="2">Sports<br>
+                            <input type="checkbox" name="category[]" value="3">Technology<br>
+                            <input type="checkbox" name="category[]" value="4">Education<br>
 
                         </div>
                                 <!-- this is mine -->

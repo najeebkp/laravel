@@ -1,9 +1,8 @@
 @extends ('layouts.app')
-
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Create post</title>
+    <title>Edit post</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <style>
@@ -122,14 +121,14 @@
   @section('content')
   <body>
     <div class="testbox">
-      <form action="{{route('post.create')}}" method="post">
+      <form action="{{route('post.edit',$posts->slug)}}"method="post">
         <div class="banner">
-          <h1>Create Post</h1>
+          <h1>Edit Post</h1>
         </div>
         <div class="item">
           <p>Title</p>
           <div class="name-item">
-            <input type="text" name="title"/>
+            <input type="text"value= "<?php echo $posts->title?>" name="title"/>
           </div>
         </div>
      
@@ -137,13 +136,13 @@
         <div class="item">
           <p>Description</p>
 
-          <textarea rows="3" name="body" required></textarea>
+          <textarea rows="3" name="body" required><?php echo $posts->body?></textarea>
         </div>
-<select name="Category">
-  <option value="political">Political</option>
-  <option value="sports">Sports</option>
-  <option value="technology">Technology</option>
-  <option value="education">Education</option>
+<select name="category">
+  <option value="1">Political</option>
+  <option value="2">Sports</option>
+  <option value="3">Technology</option>
+  <option value="4">Education</option>
 </select>
         
         

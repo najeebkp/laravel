@@ -14,11 +14,13 @@
 
 <tbody>
 <?php
-foreach($posts as $post){ 
+use App\Category;
+
+foreach($posts as $post){
 	echo"
 	<tr>
 	<td>{$post->title}</td>
-	<td>{ $post->Category}</td>";
+	<td>{$post->category['title']}</td>";
 	echo"<td>".str_limit($post->body, $limit = 50, $end = '...')."</td>";
 	echo"<td><a href='/post_details/{$post->slug}/edit'><button class='btn btn-warning'>Edit</button></a></td>
 		<td><a href='/post_details/{$post->slug}/delete'><button class='btn btn-danger'>Delete</button></a></td>

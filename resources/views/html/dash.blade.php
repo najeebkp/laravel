@@ -1,17 +1,29 @@
 ﻿@extends('layouts.app')
 @section('content')
 
-
 <!DOCTYPE html>
+@if (session()->has('success'))
+    <div class="alert alert-success">
+        @if(is_array(session()->get('success')))
+        <ul>
+            @foreach (session()->get('success') as $message)
+                <li>{{ $message }}</li>
+            @endforeach
+        </ul>
+        @else
+            {{ session()->get('success') }}
+        @endif
+    </div>
+@endif
 
 <head>
       
 	<!-- BOOTSTRAP STYLES-->
-    <link href="static/assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="/assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
-    <link href="static/assets/css/font-awesome.css" rel="stylesheet" />
+    <link href="/assets/css/font-awesome.css" rel="stylesheet" />
         <!-- CUSTOM STYLES-->
-    <link href="static/assets/css/custom.css" rel="stylesheet" />
+    <link href="/assets/css/custom.css" rel="stylesheet" />
      <!-- GOOGLE FONTS-->
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
@@ -30,17 +42,17 @@
                  
 
 <li>
-                        <a href="blog/category-detail/politics/"><i class="fa fa-edit "></i>Political</a>
+                        <a href="<?php echo '/category/1' ?>"><i class="fa fa-edit "></i>Political</a>
                     </li>
                     <li>
-                        <a href="blog/category-detail/sports/"><i class="fa fa-edit "></i>Sports</a>
+                        <a href="<?php echo '/category/2' ?>"><i class="fa fa-edit "></i>Sports</a>
                     </li>
                      <li>
-                        <a href="blog/category-detail/tech/"><i class="fa fa-edit "></i>Technology </a>
+                        <a href="<?php echo '/category/3' ?>"><i class="fa fa-edit "></i>Technology </a>
                     </li>
 
 	 <li>
-                        <a href="blog/category-detail/education/"><i class="fa fa-edit "></i>Education </a>
+                        <a href="<?php echo '/category/4' ?>"><i class="fa fa-edit "></i>Education </a>
                     </li>
                     
                 </ul>
@@ -61,7 +73,7 @@
                 <div class="row">
                     <div class="col-lg-12  ">
                         <div class="alert alert-info">
-                             <strong>Welcome {{u.username}} ! </strong>
+                             <strong>Welcome {{ Auth::user()->name }}! </strong>
                         </div>
                        
                     </div>
@@ -71,7 +83,7 @@
                   
                   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
-                           <a href="blog/new-post" >
+                           <a href="new-post" >
 
  <i class="fa fa-clipboard fa-5x"></i>
                       <h4>New Article</h4>
@@ -83,7 +95,7 @@
                  
                   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
-                           <a href="blog/admin-post" >
+                           <a href="post_list_admin" >
  <i class="fa fa-pencil-square-o fa-5x"></i>
                       <h4>Manage Article</h4>
                       </a>
@@ -92,7 +104,7 @@
 	</div>
 	<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
-                           <a href="blog/post-list" >
+                           <a href="posts" >
  <i class="fa fa-list fa-5x"></i>
                       <h4>All Articles</h4>
                       </a>
@@ -102,9 +114,9 @@
                   </div>
                   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
-                           <a href="blog/password" >
- <i class="fa fa-users fa-5x aria-hidden="true""></i>
-                      <h4>Settings</h4>
+                           <a href="changePassword/{{Auth::user()->id}}" >
+ <i class="fa fa-users fa-5x"></i>
+                      <h4>Change Password</h4>
                       </a>
                       </div>
                      
@@ -121,10 +133,10 @@
      <!-- /. WRAPPER  -->
    
     <!-- JQUERY SCRIPTS -->
-    <script src="static/assets/js/jquery-1.10.2.js"></script>
+    <script src="/assets/js/jquery-1.10.2.js"></script>
   
       <!-- CUSTOM SCRIPTS -->
-    <script src="static/assets/js/custom.js"></script>
+    <script src="/assets/js/custom.js"></script>
     
 </body>
 </html>
